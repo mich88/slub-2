@@ -18,7 +18,7 @@ $susy-small: (
 	global-box-sizing: border-box
 );
 $susy-medium: (
-	container: 748px,
+	container: 708px,
 	columns: 12,
 	global-box-sizing: border-box
 );
@@ -33,7 +33,15 @@ $susy-x-large: (
 	global-box-sizing: border-box
 );
 
-$susy-counter: (
+$susy-counter-small: (
+	math: static,
+	container: 300px,
+	columns: 4,
+	gutters: 12/66,
+	column-width: 66px
+);
+
+$susy-counter-large: (
 	math: static,
 	container: 554px,
 	columns: 4,
@@ -108,7 +116,7 @@ img {
 }
 
 section {
-	padding-bottom: 80px;
+	padding-bottom: 40px;
 }
 
 p {
@@ -137,12 +145,12 @@ p {
   	fill: currentColor;
 }
 .icon-AlicjaMichal {
-  	font-size: 200px;
+  	font-size: 100px;
   	color: #fff;
 }
 .icon-Paint {
 	max-height: 520px;
-  	font-size: 960px;
+  	font-size: 300px;
   	color: #000;
 }
 .icon-envelope {
@@ -156,17 +164,15 @@ p {
 	margin: 0 auto;
 	font-size: 150px;
 	color: #fa7d8e;
+
+	&-r, &-l {
+		font-size: 50px;
+		color: #fff;
+		vertical-align: middle;
+
+	}
 }
-.icon-flowers-r {
-	font-size: 90px;
-	color: #fff;
-	vertical-align: middle;
-}
-.icon-flowers-l {
-	font-size: 90px;
-	color: #fff;
-	vertical-align: middle;
-}
+
 .icon-bands {
 	display: block;
 	margin: 0 auto;
@@ -299,7 +305,7 @@ p {
 	}
 
 	// HERO
-	@include with-layout($susy-counter) {
+	@include with-layout($susy-counter-small) {
 		.hero {
 			@include container;
 
@@ -316,7 +322,7 @@ p {
 
 				&_big {
 					padding-bottom: 30px;
-					font-size: 22px;
+					font-size: 14px;
 					color: #fff;
 					text-align: center;
 					
@@ -338,8 +344,8 @@ p {
 			&__item {
 				@include gallery(1 of 4);
 
-				padding-top: 10px;
-				padding-bottom: 15px;
+				padding-top: 0;
+				padding-bottom: 10px;
 				border: 1px solid #fff;
 				background-color: rgba(0, 0, 0, 0.5);
 				text-align: center;
@@ -348,7 +354,7 @@ p {
 			&__num {
 				margin-bottom: 0;
 				opacity: 0;
-				@include font-gv(60, 400, fff);
+				@include font-gv(40, 400, fff);
 
 				animation-name: show-counter;
 			    animation-duration: 0.6s;
@@ -358,7 +364,7 @@ p {
 
 			&__txt {
 				margin-bottom: 0;
-				font-size: 16px;
+				font-size: 12px;
 				color: #fff;
 			}
 		}
@@ -429,7 +435,401 @@ p {
 		.info {
 
 			&__box {
+				padding-bottom: 20px;
+			}
+		}
+	}
+
+	
+
+	// MAP
+	#map {
+		margin-top: 60px;
+		height: 450px;
+	}
+
+	// ROOMS
+	#rooms {
+		
+		.info {
+			margin-bottom: 20px;
+
+			&__box {
+				padding-bottom: 40px;
+			}
+		}
+	}
+
+	// CONTACT
+
+
+	.info {
+		@include container;
+
+		margin-top: 64px;
+
+		&_contact {
+			margin-top: 80px;
+			margin-bottom: 0;
+		}
+
+		&__box {
+			position: relative;
+			margin-bottom: 40px;
+
+			&_contact {
+				text-align: center;
+			}
+
+			&_full {
+			}
+		}
+
+		&__img {
+			margin-bottom: 20px;
+		}
+
+		&__txt {
+			margin-bottom: 20px;
+			font-size: 20px;
+			text-align: center;
+		}
+
+		&__link {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			&_contact {
+				display: inline-block;
+				font-size: 20px;
+			}
+		}
+	}
+
+	// FOOTER 
+	@include with-layout($susy-footer) {
+
+		footer {
+			@include container;
+
+			padding: 15px 20px 10px;
+			background-color: #666;
+		}
+
+		.footer {
+
+			&__box {
+				@include gallery(1 of 2);
+
+				&.align_c {
+					position: absolute;
+				}
+			}
+
+			&__txt {
+				// position: absolute;
+				display: block;
+				margin-top: 10px;
+				margin-bottom: 0;
+				font-size: 14px;
+				color: #fff;
+			}
+
+			&__link {
+				color: #fff;
+			}
+
+			&__icon {
+				height: 34px;
+				font-size: 120px;
+				color: #fff;
+			}
+		}
+	}
+// }
+
+// .hero {
+// 		background: transparent url('../img/banner-480.jpg') left top no-repeat;
+// 	}
+
+// @include bp(small) {
+// 	.hero {
+// 		background: transparent url('../img/banner-768.jpg') left top no-repeat;
+// 	}
+// }
+
+// @include bp(medium) {
+// 	.hero {
+// 		background: transparent url('../img/banner-1024.jpg') left top no-repeat;
+// 	}
+// }
+
+// @include bp(large) {
+// 	.hero {
+// 		background: transparent url('../img/banner-1200.jpg') left top no-repeat;
+// 	}
+// }
+
+// @include bp(x-large) {
+// 	.hero {
+// 		background: transparent url('../img/banner-2000.jpg') left top no-repeat;
+// 	}
+
+@include bp(small) {
+
+}
+
+.wrap {
+		@include layout($susy-x-small);
+		@include container;
+	}
+
+	header {
+		padding-top: 150px;
+		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-1200.jpg') 50% 50% no-repeat;
+		background-size: cover;		
+	}
+
+	nav {
+		padding-top: 20px;
+		background-color: transparent;
+
+		.logo {
+			position: absolute;
+			left: 50%;
+			margin-left: -50px;
+			transition: all 0.3s 0.3s;
+
+			.icon-AlicjaMichal {
+				transition: all 0.3s 0.3s;
+			}
+
+			.nav__link {
+				color: #fa7d8e;
+			}
+		}
+
+		.nav {
+
+			&__list {
+				display: none;
+				padding-left: 24px;
+			}
+
+			&__item {
+				margin: 0 15px;
+				height: 200px;
+
+				&.extra_r {
+					margin-right: 220px;
+				}
+			}
+
+			&__link {
+				line-height: 200px;
+				color: #fff;
+			}
+		}
+
+		&.sticky {
+
+			.logo {
+				margin-left: -50px;
+
+				.icon-AlicjaMichal {
+					margin-top: 10px;
+					font-size: 100px;
+					color: #fa7d8e;
+				}
+			}
+
+			.nav {
+
+				&__item {
+
+					&.extra_r {
+						margin-right: 120px;
+					}
+				}
+			}
+		}
+	}
+
+@include bp(medium) {
+
+	body {
+		font-size: 20px;
+		line-height: 1.2;
+	}
+
+	section {
+		padding-bottom: 80px;
+	}
+
+	.title {
+		font-size: 60px;
+	}
+
+	.icon-Paint {
+		font-size: 708px;
+	}
+
+	.icon-flowers {
+
+		&-r, &-l {
+			font-size: 90px;
+		}
+	}
+
+	.wrap {
+		@include layout($susy-medium);
+		@include container;
+	}
+
+	header {
+		padding-top: 500px;
+		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-1200.jpg') 50% 50% no-repeat;
+		background-size: cover;		
+	}
+
+	nav {
+		padding-top: 20px;
+		background-color: transparent;
+
+		.logo {
+			position: absolute;
+			left: 50%;
+			margin-left: -100px;
+			transition: all 0.3s 0.3s;
+
+			.icon-AlicjaMichal {
+				font-size: 200px;
+				transition: all 0.3s 0.3s;
+			}
+
+			.nav__link {
+				color: #fa7d8e;
+			}
+		}
+
+		.nav {
+
+			&__list {
+				padding-left: 24px;
+			}
+
+			&__item {
+				margin: 0 15px;
+				height: 200px;
+
+				&.extra_r {
+					margin-right: 220px;
+				}
+			}
+
+			&__link {
+				line-height: 200px;
+				color: #fff;
+			}
+		}
+
+		&.sticky {
+
+			.logo {
+				margin-left: -50px;
+
+				.icon-AlicjaMichal {
+					margin-top: 10px;
+					font-size: 100px;
+					color: #fa7d8e;
+				}
+			}
+
+			.nav {
+
+				&__item {
+
+					&.extra_r {
+						margin-right: 120px;
+					}
+				}
+			}
+		}
+	}
+
+	#wedding {
+
+
+		.info {
+
+			&__box {
 				height: 440px;
+			}
+		}
+	}
+
+	@include with-layout($susy-counter-large) {
+		.hero {
+			@include container;
+
+			//position: absolute;
+			margin: 0 auto;
+			padding: 0;
+
+			&__txt {
+				margin-bottom: 10px;
+				font-size: 18px;
+				color: #fff;
+				text-align: center;
+
+
+				&_big {
+					padding-bottom: 30px;
+					font-size: 22px;
+					color: #fff;
+					text-align: center;
+					
+					span {
+						display: inline-block;
+						margin: 0 15px;
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+
+		// COUNTER
+		.counter {
+			@include cf;
+
+			margin-bottom: 22px;
+
+			&__item {
+				@include gallery(1 of 4);
+
+				padding-top: 10px;
+				padding-bottom: 15px;
+				border: 1px solid #fff;
+				background-color: rgba(0, 0, 0, 0.5);
+				text-align: center;
+			}
+
+			&__num {
+				margin-bottom: 0;
+				opacity: 0;
+				@include font-gv(60, 400, fff);
+
+				animation-name: show-counter;
+			    animation-duration: 0.6s;
+			    animation-delay: 1.3s;
+			    animation-fill-mode: forwards;
+			}
+
+			&__txt {
+				margin-bottom: 0;
+				font-size: 16px;
+				color: #fff;
 			}
 		}
 	}
@@ -488,27 +888,6 @@ p {
 		}
 	}
 
-	// MAP
-	#map {
-		margin-top: 60px;
-		height: 450px;
-	}
-
-	// ROOMS
-	#rooms {
-		
-		.info {
-			margin-bottom: 20px;
-
-			&__box {
-				padding-bottom: 40px;
-			}
-		}
-	}
-
-	// CONTACT
-
-	// FOOTER 
 	@include with-layout($susy-footer) {
 
 		footer {
@@ -544,52 +923,13 @@ p {
 			}
 		}
 	}
-// }
-
-// .hero {
-// 		background: transparent url('../img/banner-480.jpg') left top no-repeat;
-// 	}
-
-// @include bp(small) {
-// 	.hero {
-// 		background: transparent url('../img/banner-768.jpg') left top no-repeat;
-// 	}
-// }
-
-// @include bp(medium) {
-// 	.hero {
-// 		background: transparent url('../img/banner-1024.jpg') left top no-repeat;
-// 	}
-// }
-
-// @include bp(large) {
-// 	.hero {
-// 		background: transparent url('../img/banner-1200.jpg') left top no-repeat;
-// 	}
-// }
-
-// @include bp(x-large) {
-// 	.hero {
-// 		background: transparent url('../img/banner-2000.jpg') left top no-repeat;
-// 	}
-
-@include bp(small) {
-
-}
-
-@include bp(medium) {
 
 }
 
 @include bp(large) {
 
-	body {
-		font-size: 20px;
-		line-height: 1.2;
-	}
-
-	.title {
-		font-size: 60px;
+	.icon-Paint {
+		font-size: 960px;
 	}
 
 	.wrap {
@@ -597,44 +937,16 @@ p {
 		@include container;
 	}
 
-	header {
-		padding-top: 500px;
-		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-1200.jpg') 50% 50% no-repeat;
-		background-size: cover;
-		
-	}
-
-
 	nav {
-		padding-top: 20px;
-		background-color: transparent;
-
-		.logo {
-			position: absolute;
-
-			.nav__link {
-				color: #fa7d8e;
-			}
-		}
 
 		.nav {
 
 			&__item {
-				height: 200px;
-
-				&.extra_r {
-					margin-right: 220px;
-				}
-
-				
-			}
-
-			&__link {
-				line-height: 200px;
-				color: #fff;
+				margin: 0 20px;
 			}
 		}
 	}
+
 
 }
 
