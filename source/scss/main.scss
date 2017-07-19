@@ -35,10 +35,10 @@ $susy-x-large: (
 
 $susy-counter-small: (
 	math: static,
-	container: 300px,
+	container: 280px,
 	columns: 4,
-	gutters: 12/66,
-	column-width: 66px
+	gutters: 8/62,
+	column-width: 62px
 );
 
 $susy-counter-large: (
@@ -73,6 +73,7 @@ body {
 }
 
 .title {
+	margin: 0;
 	@include font-gv(50, 400, 666);
 	text-align: center;
 }
@@ -166,7 +167,7 @@ p {
 	color: #fa7d8e;
 
 	&-r, &-l {
-		font-size: 50px;
+		font-size: 40px;
 		color: #fff;
 		vertical-align: middle;
 
@@ -379,13 +380,13 @@ p {
 	.footnote {
 		position: relative;
 		font-size: 13px;
-		line-height: 50px;
+		line-height: 30px;
 		color: #fff;
 		text-align: center;
 		background-color: rgba(0, 0, 0, 0.5);
 
 		span {
-			display: inline-block;
+			display: block;
 			margin-right: 5px;
 		}
 	}
@@ -455,6 +456,7 @@ p {
 			margin-bottom: 20px;
 
 			&__box {
+				margin-bottom: 0;
 				padding-bottom: 40px;
 			}
 		}
@@ -513,22 +515,22 @@ p {
 		footer {
 			@include container;
 
-			padding: 15px 20px 10px;
+			padding: 0 20px 10px;			
 			background-color: #666;
 		}
 
 		.footer {
 
 			&__box {
-				@include gallery(1 of 2);
+				@include span(12);
+				text-align: center;
 
-				&.align_c {
-					position: absolute;
+				&_two {
+					margin: 20px 0 10px;
 				}
 			}
 
 			&__txt {
-				// position: absolute;
 				display: block;
 				margin-top: 10px;
 				margin-bottom: 0;
@@ -668,6 +670,7 @@ p {
 	}
 
 	.title {
+		margin: 0.67em 0;
 		font-size: 60px;
 	}
 
@@ -755,6 +758,18 @@ p {
 					}
 				}
 			}
+		}
+	}
+
+	.footnote {
+		line-height: 50px;
+
+		br {
+			display: none;
+		}
+
+		span {
+			display: inline-block;
 		}
 	}
 
@@ -888,6 +903,16 @@ p {
 		}
 	}
 
+	#rooms {
+		
+		.info {
+
+			&__box {
+				margin-bottom: 40px;
+			}
+		}
+	}
+
 	@include with-layout($susy-footer) {
 
 		footer {
@@ -900,7 +925,21 @@ p {
 		.footer {
 
 			&__box {
-				@include gallery(4 of 12);
+
+				&_one {
+					@include span(4 at 9 isolate);
+					text-align: right;
+				}
+
+				&_two {
+					margin: 0;
+					@include span(4 at 5 isolate);
+				}
+
+				&_three {
+					@include span(4 at 1 isolate);
+					text-align: left;
+				}
 			}
 
 			&__txt {
