@@ -389,6 +389,7 @@ function counter() {
 	var hoursEl = document.getElementById('hours');
 	var minsEl = document.getElementById('mins');
 	var secsEl = document.getElementById('secs');
+	var counterNumEl = document.querySelector('.counter');
 
 	var weddingTime = new Date(2017, 6, 29, 14, 30, 0);
 
@@ -406,7 +407,11 @@ function counter() {
 
 	setInterval(function() {
 	  	var nowTime = new Date();
-	  	var diffTime = weddingTime - nowTime;
+		var diffTime = weddingTime - nowTime;
+
+		if (diffTime <= 86400000) {
+			counterNumEl.classList.add('counter__new');
+		}
 	  
 	  	diffTime = countDiff(diffTime, days, daysEl);
 	  	diffTime = countDiff(diffTime, hours, hoursEl);
