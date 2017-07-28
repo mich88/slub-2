@@ -389,6 +389,7 @@ function counter() {
 	var hoursEl = document.getElementById('hours');
 	var minsEl = document.getElementById('mins');
 	var secsEl = document.getElementById('secs');
+	var counterNumEl = document.querySelector('.counter');
 
 	var weddingTime = new Date(2017, 6, 29, 14, 30, 0);
 
@@ -406,7 +407,11 @@ function counter() {
 
 	setInterval(function() {
 	  	var nowTime = new Date();
-	  	var diffTime = weddingTime - nowTime;
+		  var diffTime = weddingTime - nowTime;
+				
+		  if (diffTime <= 86400000) {
+			counterNumEl.classList.add('new');
+		  }
 	  
 	  	diffTime = countDiff(diffTime, days, daysEl);
 	  	diffTime = countDiff(diffTime, hours, hoursEl);
@@ -455,9 +460,28 @@ function scrollFunctions() {
 	navScroll();
 }
 
+function navToggle() {
+	var triggEl = document.querySelector('.nav__trigg');
+	var navEl = document.querySelector('nav');
+	var navListEl = document.querySelector('.nav__list');
+
+	triggEl.addEventListener("click", (e) => {
+		if (navListEl.style.display != "block") {
+			navListEl.style.display = "block";
+			navEl.classList.add('open');
+		} else {
+			navListEl.style.display = "none";
+			navEl.classList.remove('open');
+		}
+	});
+}
+
 var callback = function(){
 	// counter
 	counter();
+
+	// navToggle 
+	navToggle();
 
 	// paralax and navscroll
 	window.addEventListener('scroll', scrollFunctions);
