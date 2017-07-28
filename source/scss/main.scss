@@ -316,6 +316,13 @@ p {
 
 			margin-bottom: 22px;
 
+			&__new {
+
+				.counter__num {
+					color: #fa7d8e;
+				}
+			}
+
 			&__item {
 				@include gallery(1 of 4);
 
