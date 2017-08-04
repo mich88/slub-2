@@ -213,7 +213,7 @@ p {
 				display: inline-block;
 				margin: 0 20px;
 				vertical-align: middle;
-				transition: all 0.3s 0.3s;
+				transition: color 0.3s 0.3s;
 
 				&.logo {
 					position: absolute;
@@ -247,7 +247,7 @@ p {
 				text-decoration: none;
 				font-size: 14px;
 				color: #fa7d8e;
-				transition: all 0.3s 0.3s;
+				transition: color 0.3s 0.3s;
 
 				&:before {
 					content: " ";
@@ -573,8 +573,9 @@ p {
 		top: 0;
 		left: 0;
 		right: 0;
-		background-color: transparent;
 		transition: top 0.3s 0.3s, background-color 0.3s 0s;
+		background-color: #fff;
+		
 
 		&.sticky {
 			position: fixed;
@@ -586,10 +587,23 @@ p {
 				top: 0;
 			}
 
+			.logo {
+				margin-left: -50px;
+
+				.icon-AlicjaMichal {
+					font-size: 100px;
+					color: #fa7d8e;
+				}
+			}
+
 			.nav {
 
 				&__item {
-					height: 120px
+					height: 120px;
+
+					&.extra_r {
+						margin-right: 120px;
+					}
 				}
 
 				&__link {
@@ -621,8 +635,8 @@ p {
 			.nav {
 
 				&__list {
-					margin-top: 110px;
-					padding: 0;
+					top: 0;
+					// margin-top: 110px;
 				}
 
 				&__item {
@@ -666,20 +680,20 @@ p {
 			right: 20px;
 			display: inline-block;
 			padding: 5px 10px;
-			border: 1px solid #000;
+			// border: 1px solid #000;
 			border-radius: 5px;
-			color: #000;
+			color: #fff;
 			cursor: pointer;
 			transition: color 0.3s;	
 
 			&:hover {
-				color: #aaa;
+				color: #fa7d8e;
 			}
 
 			span, &:before, &:after {
 				display: block;
-				margin: 2px auto;
-				width: 20px;
+				margin: 5px auto;
+				width: 30px;
 				height: 5px;
 				background-color: currentColor;
 			}
@@ -704,8 +718,13 @@ p {
 		.nav {
 
 			&__list {
-				display: none;
-				padding-left: 24px;
+				position: absolute;
+				top: -400px;
+				// margin-top: -100%;
+				// padding-left: 24px;
+				padding: 110px 0 0;		
+				width: 100%;		
+				transition: margin-top 0.3s;
 			}
 
 			&__item {
@@ -720,32 +739,6 @@ p {
 			&__link {
 				line-height: 200px;
 				color: #fff;
-			}
-		}
-
-		&.sticky {
-
-			.logo {
-				margin-left: -50px;
-
-				.icon-AlicjaMichal {
-					font-size: 100px;
-					color: #fa7d8e;
-				}
-			}
-
-			.nav {
-
-				&__trigg {
-					// margin-top: 20px;
-				}
-
-				&__item {
-
-					&.extra_r {
-						margin-right: 120px;
-					}
-				}
 			}
 		}
 	}
@@ -1082,6 +1075,7 @@ p {
 	}
 
 	nav {
+		background-color: transparent;
 
 		.nav {
 
