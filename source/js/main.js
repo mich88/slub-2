@@ -390,6 +390,8 @@ function counter() {
 	var minsEl = document.getElementById('mins');
 	var secsEl = document.getElementById('secs');
 	var counterNumEl = document.querySelector('.counter');
+	var heroTxtEl = document.querySelector('.hero__txt');
+	var heroTxt = heroTxtEl.childNodes[0];
 
 	var weddingTime = new Date(2017, 6, 29, 14, 30, 0);
 
@@ -398,6 +400,25 @@ function counter() {
 	var hours = mins * 60;
 	var days = hours * 24;
 
+	function countDiffTime(weddingTime, nowTime) {
+		var diffTime = {
+			value: weddingTime - nowTime
+		};
+
+		if (diffTime.value >= 0) {
+			diffTime = {
+				type: 1
+			};
+		} else {
+			diffTime = {
+				value: nowTime - weddingTime,
+				type: 0
+			};
+		}
+
+		return diffTime;
+	}
+
 	function countDiff(diffTime, time, el) {
 	  	var timeLeft = Math.floor(diffTime / time);
 	  	el.innerHTML = ('0' + timeLeft).slice(-2);
@@ -405,13 +426,21 @@ function counter() {
 	  	return diffTime;
 	}
 
+	var nowTime = new Date();
+	var diffTime = countDiffTime(weddingTime, nowTime);
+
+	if (diffTime.value <= 86400000 && diffTime.type == 1 || diffTime.type == 0) {
+		counterNumEl.classList.add('counter__new');
+	}
+
+	if (diffTime.type == 0) {
+		heroTxt.nodeValue = `NASZEGO MAŁŻEŃSTWA`;
+	}
+
 	setInterval(function() {
 	  	var nowTime = new Date();
-		var diffTime = weddingTime - nowTime;
-
-		if (diffTime <= 86400000) {
-			counterNumEl.classList.add('counter__new');
-		}
+		var diffTime = countDiffTime(weddingTime, nowTime);
+		diffTime = diffTime.value;
 	  
 	  	diffTime = countDiff(diffTime, days, daysEl);
 	  	diffTime = countDiff(diffTime, hours, hoursEl);
