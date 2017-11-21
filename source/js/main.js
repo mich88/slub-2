@@ -421,7 +421,11 @@ function counter() {
 
 	function countDiff(diffTime, time, el) {
 	  	var timeLeft = Math.floor(diffTime / time);
-	  	el.innerHTML = ('0' + timeLeft).slice(-2);
+	  	if(el == document.getElementById('days')) {
+		  	el.innerHTML = timeLeft;
+	  	} else {
+		  	el.innerHTML = ('0' + timeLeft).slice(-2);
+	  	}
 	  	diffTime -= (timeLeft * time);
 	  	return diffTime;
 	}
