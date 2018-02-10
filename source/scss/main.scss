@@ -96,6 +96,10 @@ img {
 			width: 100%;
 		}
 	}
+
+	&_regular {
+		font-size: inherit;
+	}
 }
 
 section {
@@ -225,7 +229,7 @@ p {
 		.nav {
 
 			&__list {
-				padding-left: 14px;
+				margin-left: -8px;
 				text-align: center;
 			}
 
@@ -426,6 +430,8 @@ p {
 		.album {
 			@include container;
 
+			margin-top: 64px;
+
 			&__card {
 				@include gallery(3 of 12);
 
@@ -488,6 +494,8 @@ p {
 		
 		.tags {
 			@include container;
+
+			margin-top: 64px;
 
 			&__card {
 				@include gallery(4 of 12);
