@@ -31,6 +31,11 @@ $susy-tags: (
 	gutters: 1
 );
 
+$susy-food: (
+	container: 360px,
+	gutters: 0
+);
+
 $susy-info: (
 	container: 800px,
 	gutters: 12
@@ -167,6 +172,15 @@ p {
 	margin: 0 auto;
 	font-size: 100px;
 	color: #fff;
+}
+.icon-cat {
+	font-size: 50px;
+	color: #666;
+}
+
+.icon-dog {
+	font-size: 50px;
+	color: #666;
 }
 
 // LAYOUT LARGE
@@ -481,6 +495,71 @@ p {
 
 			&__link {
 
+			}
+		}
+	}
+
+	// GIFTS
+	#gifts {
+		
+		.num {
+			font-size: 2em;
+			color: #fa7d8e;
+		}
+	}
+
+	.food_sum {
+		margin-bottom: 64px;
+
+		p {
+			margin-bottom: 0;
+
+			&:nth-child(2) {
+				padding-top: 18px;
+			}
+		}
+	}
+
+	@include with-layout($susy-food) {
+	
+		.food {
+			@include container;
+
+			margin-top: 64px;
+			margin-bottom: 64px;
+
+			&__box {
+				@include gallery(6 of 12);
+
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 10px;
+
+				height: 120px;
+				box-sizing: border-box;
+
+				&:nth-child(2n+1) {
+					border-right: 1px solid rgba(0,0,0, 0.2);
+				}
+
+				p {
+					margin-bottom: 0;
+				}
+			}
+
+			&__icon {
+				position: absolute;
+				top: 105px;
+
+				&_dog {
+					left: -100px;
+				}
+
+				&_cat {
+					right: -100px;
+				}
 			}
 		}
 	}
