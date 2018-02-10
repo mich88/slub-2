@@ -140,11 +140,6 @@ p {
   	font-size: 200px;
   	color: #fff;
 }
-.icon-Paint {
-	max-height: 520px;
-  	font-size: 960px;
-  	color: #000;
-}
 .icon-envelope {
 	display: block;
 	margin: 0 auto 20px;
@@ -184,585 +179,487 @@ p {
 }
 
 // LAYOUT LARGE
-// @include bp(large) {
-	@include layout($susy-large);
+@include layout($susy-large);
 
-	.wrap {
-		@include container;
-	}
+.wrap {
+	@include container;
+}
 
-	// HEADER
-	header {
-		position: relative; 
-		padding-top: 500px;
-		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-2-1200.jpg') 63% 30% no-repeat;
-		background-size: 150%;
-	}
+// HEADER
+header {
+	position: relative; 
+	padding-top: 500px;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner-2-1200.jpg') 63% 30% no-repeat;
+	background-size: 150%;
+}
 
-	nav {
-		position: absolute;
-		z-index: 100;
-		top: 0;
-		left: 0;
-		right: 0;
-		padding-top: 20px;
-		transition: top 0.3s 0.3s, background-color 0.3s 0s;
+nav {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding-top: 20px;
+	transition: top 0.3s 0.3s, background-color 0.3s 0s;
 
-		&.sticky {
-			position: fixed;
-			top: -220px;
-			background-color: #fff;
-			transition: top 0.3s 0s, background-color 0.3s 0.3s;
+	&.sticky {
+		position: fixed;
+		top: -220px;
+		background-color: #fff;
+		transition: top 0.3s 0s, background-color 0.3s 0.3s;
 
-			&.show {
-				top: -20px;
-			}
-
-			.nav {
-
-				&__item {
-					height: 120px
-				}
-
-				&__link {
-					line-height: 120px;
-					color: #fa7d8e;
-
-					&.logo {
-
-						.icon-AlicjaMichal {
-							margin-top: 10px;
-							font-size: 100px;
-							color: #fa7d8e;
-						}
-					}
-				}
-			}
+		&.show {
+			top: -20px;
 		}
 
 		.nav {
 
-			&__list {
-				margin-left: -8px;
-				text-align: center;
-			}
-
 			&__item {
-				display: inline-block;
-				margin: 0 20px;
-				height: 200px;
-				vertical-align: middle;
-				overflow: hidden;
-				transition: all 0.3s 0.3s;
-
+				height: 120px
 			}
 
 			&__link {
-				position: relative;
-				text-decoration: none;
-				font-size: 14px;
-				line-height: 200px;
-				color: #fff;
-				transition: all 0.3s 0.3s;
-
-				&:before {
-					content: " ";
-					position: absolute;
-					left: 0;
-					bottom: 0;
-					display: block;
-					width: 0%;
-					height: 1px;
-					background-color: #fa7d8e;
-					transition: width 0.3s;
-				}
-
-				&:hover {
-
-					&:before {
-						width: 100%;
-					}
-				}
+				line-height: 120px;
+				color: #fa7d8e;
 
 				&.logo {
-					position: relative;
-					display: block;
-
-					&:before {
-						display: block;
-						top: 0;
-						right: 0;
-						width: 100%;
-						height: 100%;
-						background-color: transparent;
-						transition: none;
-					}
 
 					.icon-AlicjaMichal {
-						transition: all 0.3s 0.3s;
-
+						margin-top: 10px;
+						font-size: 100px;
+						color: #fa7d8e;
 					}
 				}
 			}
 		}
 	}
 
-	// HERO
-	@include with-layout($susy-counter) {
-		.hero {
-			@include container;
+	.nav {
 
-			//position: absolute;
-			margin: 0 auto;
-			padding: 0;
-
-			&__txt {
-				margin-bottom: 10px;
-				font-size: 18px;
-				color: #fff;
-				text-align: center;
-
-
-				&_big {
-					padding-bottom: 30px;
-					font-size: 22px;
-					color: #fff;
-					text-align: center;
-					
-					span {
-						display: inline-block;
-						margin: 0 15px;
-						vertical-align: middle;
-					}
-				}
-			}
-		}
-
-		// COUNTER
-		.counter {
-			@include cf;
-
-			margin-bottom: 22px;
-
-			&__new {
-
-				.counter__num {
-					color: #fa7d8e;
-				}
-			}
-
-			&__item {
-				@include gallery(1 of 4);
-
-				padding-top: 10px;
-				padding-bottom: 15px;
-				border: 1px solid #fff;
-				background-color: rgba(0, 0, 0, 0.5);
-				text-align: center;
-			}
-
-			&__num {
-				margin-bottom: 0;
-				opacity: 0;
-				@include font-gv(60, 400, fff);
-
-				animation-name: show-counter;
-			    animation-duration: 0.6s;
-			    animation-delay: 1.3s;
-			    animation-fill-mode: forwards;
-			}
-
-			&__txt {
-				margin-bottom: 0;
-				font-size: 16px;
-				color: #fff;
-			}
-		}
-	}
-
-	@keyframes show-counter {
-		from { opacity: 0 }
-		to {opacity: 1 }
-	}
-
-	// FOOTNOTE
-	.footnote {
-		position: relative;
-		font-size: 13px;
-		line-height: 50px;
-		color: #fff;
-		text-align: center;
-		background-color: rgba(0, 0, 0, 0.5);
-
-		span {
-			display: inline-block;
-			margin-right: 5px;
-		}
-	}
-
-	// INTRO
-	#intro {
-		padding-bottom: 0;
-
-		p {
+		&__list {
+			margin-left: -8px;
 			text-align: center;
 		}
-	}
-	
-	// ENGAGEMENT
-	#engagement {
 
-		.title {
-			margin-bottom: 0;
+		&__item {
+			display: inline-block;
+			margin: 0 20px;
+			height: 200px;
+			vertical-align: middle;
+			overflow: hidden;
+			transition: all 0.3s 0.3s;
+
+		}
+
+		&__link {
+			position: relative;
+			text-decoration: none;
+			font-size: 14px;
+			line-height: 200px;
+			color: #fff;
+			transition: all 0.3s 0.3s;
+
+			&:before {
+				content: " ";
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				display: block;
+				width: 0%;
+				height: 1px;
+				background-color: #fa7d8e;
+				transition: width 0.3s;
+			}
+
+			&:hover {
+
+				&:before {
+					width: 100%;
+				}
+			}
+
+			&.logo {
+				position: relative;
+				display: block;
+
+				&:before {
+					display: block;
+					top: 0;
+					right: 0;
+					width: 100%;
+					height: 100%;
+					background-color: transparent;
+					transition: none;
+				}
+
+				.icon-AlicjaMichal {
+					transition: all 0.3s 0.3s;
+
+				}
+			}
+		}
+	}
+}
+
+// HERO
+@include with-layout($susy-counter) {
+	.hero {
+		@include container;
+
+		//position: absolute;
+		margin: 0 auto;
+		padding: 0;
+
+		&__txt {
+			margin-bottom: 10px;
+			font-size: 18px;
+			color: #fff;
+			text-align: center;
+
+
+			&_big {
+				padding-bottom: 30px;
+				font-size: 22px;
+				color: #fff;
+				text-align: center;
+				
+				span {
+					display: inline-block;
+					margin: 0 15px;
+					vertical-align: middle;
+				}
+			}
 		}
 	}
 
-	.date {
-		margin-bottom: 44px;
-		font-size: 24px;
+	// COUNTER
+	.counter {
+		@include cf;
+
+		margin-bottom: 22px;
+
+		&__new {
+
+			.counter__num {
+				color: #fa7d8e;
+			}
+		}
+
+		&__item {
+			@include gallery(1 of 4);
+
+			padding-top: 10px;
+			padding-bottom: 15px;
+			border: 1px solid #fff;
+			background-color: rgba(0, 0, 0, 0.5);
+			text-align: center;
+		}
+
+		&__num {
+			margin-bottom: 0;
+			opacity: 0;
+			@include font-gv(60, 400, fff);
+
+			animation-name: show-counter;
+		    animation-duration: 0.6s;
+		    animation-delay: 1.3s;
+		    animation-fill-mode: forwards;
+		}
+
+		&__txt {
+			margin-bottom: 0;
+			font-size: 16px;
+			color: #fff;
+		}
+	}
+}
+
+@keyframes show-counter {
+	from { opacity: 0 }
+	to {opacity: 1 }
+}
+
+// FOOTNOTE
+.footnote {
+	position: relative;
+	font-size: 13px;
+	line-height: 50px;
+	color: #fff;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	span {
+		display: inline-block;
+		margin-right: 5px;
+	}
+}
+
+// INTRO
+#intro {
+	padding-bottom: 0;
+
+	p {
 		text-align: center;
+	}
+}
+
+// GALLERY
+@include with-layout($susy-album) {
+	
+	.album {
+		@include container;
+
+		margin-top: 64px;
+
+		&__card {
+			@include gallery(3 of 12);
+
+			margin-bottom: 40px;
+			padding: 25px;
+			height: 450px;
+			border: 1px solid rgba(0,0,0, 0.2);
+			transition: box-shadow 0.6s;
+			box-sizing: border-box;
+			
+			&:hover {
+				box-shadow: 0px 0px 50px -5px #fa7d8e;
+			}
+
+		}
+
+		&__photo {
+			padding: 5px;
+			width: 100%;
+			border: 2px solid #000;
+			box-sizing: border-box;
+			
+		}
+
+		&__title {
+			height: 82px;
+			padding-bottom: 10px;
+			color: #000;
+
+			& p {
+				margin: 0;
+			}
+		}
+
+		&__txt {
+			padding-top: 20px;
+			margin-bottom: 10px;
+			border-top: 1px solid rgba(0,0,0, 0.2);
+		}
+
+		&__links {
+			display: flex;
+		    justify-content: space-between;
+		    padding-bottom: 30px;
+
+		}
+
+		&__link {
+
+		}
+	}
+}
+
+// GIFTS
+#gifts {
+	
+	.num {
+		font-size: 2em;
 		color: #fa7d8e;
 	}
+}
 
-	.castle {
-		position: relative;
+.food_sum {
+	margin-bottom: 64px;
 
-		.link {
-			position: absolute;
-			right: 0;
-			bottom: 0;
+	p {
+		margin-bottom: 0;
+
+		&:nth-child(2) {
+			padding-top: 18px;
 		}
 	}
+}
 
-	// GALLERY
-	#gallery {
+@include with-layout($susy-food) {
 
-	}
+	.food {
+		@include container;
 
-	@include with-layout($susy-album) {
-		
-		.album {
-			@include container;
-
-			margin-top: 64px;
-
-			&__card {
-				@include gallery(3 of 12);
-
-				margin-bottom: 40px;
-				padding: 25px;
-				height: 450px;
-				border: 1px solid rgba(0,0,0, 0.2);
-				transition: box-shadow 0.6s;
-				box-sizing: border-box;
-				
-				&:hover {
-					box-shadow: 0px 0px 50px -5px #fa7d8e;
-				}
-
-			}
-
-			&__photo {
-				padding: 5px;
-				width: 100%;
-				border: 2px solid #000;
-				box-sizing: border-box;
-				
-			}
-
-			&__title {
-				height: 82px;
-				padding-bottom: 10px;
-				color: #000;
-
-				& p {
-					margin: 0;
-				}
-			}
-
-			&__txt {
-				padding-top: 20px;
-				margin-bottom: 10px;
-				border-top: 1px solid rgba(0,0,0, 0.2);
-			}
-
-			&__links {
-				display: flex;
-			    justify-content: space-between;
-			    padding-bottom: 30px;
- 
-			}
-
-			&__link {
-
-			}
-		}
-	}
-
-	// GIFTS
-	#gifts {
-		
-		.num {
-			font-size: 2em;
-			color: #fa7d8e;
-		}
-	}
-
-	.food_sum {
+		margin-top: 64px;
 		margin-bottom: 64px;
 
-		p {
-			margin-bottom: 0;
+		&__box {
+			@include gallery(6 of 12);
 
-			&:nth-child(2) {
-				padding-top: 18px;
-			}
-		}
-	}
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 10px;
 
-	@include with-layout($susy-food) {
-	
-		.food {
-			@include container;
+			height: 120px;
+			box-sizing: border-box;
 
-			margin-top: 64px;
-			margin-bottom: 64px;
-
-			&__box {
-				@include gallery(6 of 12);
-
-				position: relative;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				margin: 10px;
-
-				height: 120px;
-				box-sizing: border-box;
-
-				&:nth-child(2n+1) {
-					border-right: 1px solid rgba(0,0,0, 0.2);
-				}
-
-				p {
-					margin-bottom: 0;
-				}
+			&:nth-child(2n+1) {
+				border-right: 1px solid rgba(0,0,0, 0.2);
 			}
 
-			&__icon {
-				position: absolute;
-				top: 105px;
-
-				&_dog {
-					left: -100px;
-				}
-
-				&_cat {
-					right: -100px;
-				}
-			}
-		}
-	}
-
-	// TAGS
-	#tag {
-
-	}
-
-	@include with-layout($susy-tags) {
-		
-		.tags {
-			@include container;
-
-			margin-top: 64px;
-
-			&__card {
-				@include gallery(4 of 12);
-
-				position: relative;
-				margin-bottom: 40px;
-
-				&:hover {
-
-					& .tags__photo_f {
-					    transform: rotateY(180deg);	
-					}
-
-
-					& .tags__photo_b {
-					    transform: rotateY(0deg);	
-					}
-				}
-			}
-
-			&__photo {
-				transform-style: preserve-3d;
-				transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1);
-				backface-visibility: hidden;
-
-				&_b {
-					position: absolute;
-					top: 0;
-					left: 0;
-				    transform: rotateY(180deg);
-				}
-				
-			}
-		}
-	}
-
-	// WEDDING
-	#wedding {
-		padding-bottom: 10px;
-
-		.title {
-			margin-bottom: 0;
-		}
-
-		.info {
-
-			&__box {
-				height: 440px;
-			}
-		}
-	}
-
-	@include with-layout($susy-info) {
-
-		.info {
-			@include container;
-
-			margin-top: 64px;
-			margin-bottom: 80px;
-
-			&_contact {
-				margin-top: 80px;
+			p {
 				margin-bottom: 0;
 			}
+		}
 
-			&__row {
-				@include span(12 of 12 last);
+		&__icon {
+			position: absolute;
+			top: 105px;
+
+			&_dog {
+				left: -100px;
 			}
 
-			&__box {
-				@include gallery(6 of 12);
+			&_cat {
+				right: -100px;
+			}
+		}
+	}
+}
 
-				position: relative;
+// TAGS
+@include with-layout($susy-tags) {
+	
+	.tags {
+		@include container;
 
-				&_contact {
-					text-align: center;
+		margin-top: 64px;
+
+		&__card {
+			@include gallery(4 of 12);
+
+			position: relative;
+			margin-bottom: 40px;
+
+			&:hover {
+
+				& .tags__photo_f {
+				    transform: rotateY(180deg);	
 				}
 
-				&_full {
-					@include gallery(12 of 12);
+
+				& .tags__photo_b {
+				    transform: rotateY(0deg);	
 				}
 			}
+		}
 
-			&__img {
-				margin-bottom: 20px;
+		&__photo {
+			transform-style: preserve-3d;
+			transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1);
+			backface-visibility: hidden;
+
+			&_b {
+				position: absolute;
+				top: 0;
+				left: 0;
+			    transform: rotateY(180deg);
 			}
+			
+		}
+	}
+}
 
-			&__txt {
-				margin-bottom: 20px;
-				font-size: 20px;
+// CONTACT
+@include with-layout($susy-info) {
+
+	.info {
+		@include container;
+
+		margin-top: 64px;
+		margin-bottom: 80px;
+
+		&_contact {
+			margin-top: 80px;
+			margin-bottom: 0;
+		}
+
+		&__row {
+			@include span(12 of 12 last);
+		}
+
+		&__box {
+			@include gallery(6 of 12);
+
+			position: relative;
+
+			&_contact {
 				text-align: center;
 			}
 
-			&__link {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-
-				&_contact {
-					display: inline-block;
-					font-size: 20px;
-				}
+			&_full {
+				@include gallery(12 of 12);
 			}
 		}
-	}
 
-	// MAP
-	#map {
-		margin-top: 60px;
-		height: 450px;
-	}
-
-	// ROOMS
-	#rooms {
-		
-		.info {
+		&__img {
 			margin-bottom: 20px;
+		}
 
-			&__box {
-				padding-bottom: 40px;
+		&__txt {
+			margin-bottom: 20px;
+			font-size: 20px;
+			text-align: center;
+		}
+
+		&__link {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			&_contact {
+				display: inline-block;
+				font-size: 20px;
 			}
 		}
 	}
+}
 
-	// CONTACT
+// FOOTER 
+@include with-layout($susy-footer) {
 
-	// FOOTER 
-	@include with-layout($susy-footer) {
+	footer {
+		@include container;
 
-		footer {
-			@include container;
+		padding: 15px 20px 10px;
+		background-color: #666;
+	}
 
-			padding: 15px 20px 10px;
-			background-color: #666;
+	.footer {
+
+		&__box {
+			@include gallery(4 of 12);
 		}
 
-		.footer {
+		&__txt {
+			// position: absolute;
+			display: block;
+			margin-top: 10px;
+			margin-bottom: 0;
+			font-size: 14px;
+			color: #fff;
+		}
 
-			&__box {
-				@include gallery(4 of 12);
-			}
+		&__link {
+			color: #fff;
+		}
 
-			&__txt {
-				// position: absolute;
-				display: block;
-				margin-top: 10px;
-				margin-bottom: 0;
-				font-size: 14px;
-				color: #fff;
-			}
-
-			&__link {
-				color: #fff;
-			}
-
-			&__icon {
-				height: 34px;
-				font-size: 120px;
-				color: #fff;
-			}
+		&__icon {
+			height: 34px;
+			font-size: 120px;
+			color: #fff;
 		}
 	}
-// }
-
-// .hero {
-// 		background: transparent url('../img/banner-480.jpg') left top no-repeat;
-// 	}
-
-// @include bp(small) {
-// 	.hero {
-// 		background: transparent url('../img/banner-768.jpg') left top no-repeat;
-// 	}
-// }
-
-// @include bp(medium) {
-// 	.hero {
-// 		background: transparent url('../img/banner-1024.jpg') left top no-repeat;
-// 	}
-// }
-
-// @include bp(large) {
-// 	.hero {
-// 		background: transparent url('../img/banner-1200.jpg') left top no-repeat;
-// 	}
-// }
-
-// @include bp(x-large) {
-// 	.hero {
-// 		background: transparent url('../img/banner-2000.jpg') left top no-repeat;
-// 	}
-// }
+}
